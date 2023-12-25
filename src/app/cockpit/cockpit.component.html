@@ -5,13 +5,16 @@
     <input type="text" class="form-control" [(ngModel)]="newServerName">
     <label>Server Content</label>
     <input type="text" class="form-control" [(ngModel)]="newServerContent">
+    <label>Server options</label>
+    <input type="text" class="form-control" #serverOptionsInput>
     <br>
     <div class="text-danger" *ngIf="errorMessage">
       {{ errorMessage }}
     </div>
     <div style="display:flex;flex-direction: row; gap: 5px;">
-      <button class="btn btn-primary" (click)="onAddServer()">Add Server</button>
-      <button class="btn btn-primary" (click)="onAddBlueprint()">Add Server Blueprint</button>
+      <!-- Uso la reference dell'input per inserirlo in funzione e ricevere quindi l'oggetto al suo interno, dopodiché mi tiro il valore -->
+      <button class="btn btn-primary" (click)="onAddServer(serverOptionsInput)">Add Server</button>
+      <button class="btn btn-primary" (click)="onAddBlueprint(serverOptionsInput)">Add Server Blueprint</button>
     </div>
   </div>
 </div>

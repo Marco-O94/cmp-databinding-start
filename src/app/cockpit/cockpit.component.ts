@@ -14,13 +14,16 @@ export class CockpitComponent {
   @Output('srvCreated') serverCreated = new EventEmitter<{
     serverName: string;
     serverContent: string;
+    serverOptions: string;
   }>();
   // L'output è un decorator che permette di esporre un evento al componente padre (app.component.ts)
   @Output('bpCreated') blueprintCreated = new EventEmitter<{
     serverName: string;
     serverContent: string;
+    serverOptions: string;
   }>();
-  onAddServer() {
+  onAddServer(serverOptionsInput: HTMLInputElement) {
+    // Tramite la reference locale del template posso accedere al valore dell'input
     if (this.newServerName === '' || this.newServerContent === '') {
       return (this.errorMessage = 'Please enter a server name and content');
     } else {
@@ -29,12 +32,13 @@ export class CockpitComponent {
     this.serverCreated.emit({
       serverName: this.newServerName,
       serverContent: this.newServerContent,
+      serverOptions: serverOptionsInput.value,
     });
     this.newServerName = '';
     this.newServerContent = '';
   }
 
-  onAddBlueprint() {
+  onAddBlueprint(serverOptionsInput: HTMLInputElement) {
     if (this.newServerName === '' || this.newServerContent === '') {
       return (this.errorMessage = 'Please enter a server name and content');
     } else {
@@ -43,6 +47,7 @@ export class CockpitComponent {
     this.blueprintCreated.emit({
       serverName: this.newServerName,
       serverContent: this.newServerContent,
+      serverOptions: serverOptionsInput.value,
     });
     this.newServerName = '';
     this.newServerContent = '';
