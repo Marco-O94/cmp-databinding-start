@@ -10,10 +10,12 @@ export class CockpitComponent {
   newServerContent = '';
   errorMessage = '';
 
+  // Posso assegnare un alias all'evento che emetto per evitare di doverlo cambiare in tutti i componenti che lo usano se mai dovessi cambiare il nome dell'evento
   @Output('srvCreated') serverCreated = new EventEmitter<{
     serverName: string;
     serverContent: string;
   }>();
+  // L'output è un decorator che permette di esporre un evento al componente padre (app.component.ts)
   @Output('bpCreated') blueprintCreated = new EventEmitter<{
     serverName: string;
     serverContent: string;
