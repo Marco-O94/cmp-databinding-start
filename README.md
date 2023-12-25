@@ -1,6 +1,8 @@
 # CmpDatabindingStart
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0-rc.5.
+Progetto per comprendere meglio i meccanismi di Input / Output tra le varie componenti di un'applicazione Angular.
+Ovviamente non è l'approccio migliore. è utile solo se la distanza tra le componenti padre e figlio è breve.
+Altrimenti è meglio utilizzare un servizio.
 
 ## Development server
 
